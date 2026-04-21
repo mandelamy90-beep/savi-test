@@ -3,7 +3,7 @@ export default {
     try {
       const accessFlag = await env.KV.get("canBeAccessed");
 
-      if (accessFlag !== "true") {
+      if (accessFlag !== "false") {
         return new Response(getDowntimeHTML(), {
           status: 503,
           headers: {
