@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Savi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Savi Softworks Ltd">
+  <meta name="description" content="Savi is a safe, trustworthy all-in-one social media platform for users between the ages of 10 and 16 years old.">
+  <meta name="keywords" content="savi, social, social media, savi softworks, savi social, savi platform">
+  <meta name="apple-itunes-app" content="app-id=0">
+  <link rel="apple-touch-icon" href="./SaviLogo.png">
+  <script type="application/ld+json">
+    {
+    "@context" : "https://schema.org",
+    "@type" : "Organization",
+    "name" : "Savi Softworks Ltd",
+    "url" : "https://example.ie",
+    "image" : "./SaviLogo.png",
+    "logo" : "./SaviLogo.png",
+    "email" : "savi@example.ie",
+    "sameAs" : [
+    "",
+    ]
+    }
+    </script>
+  <meta ng-csp="no-unsafe-eval">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #2578BB, #4FACFE);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .login-container h1 {
+      text-align: center;
+      color: #2578BB;
+      margin-bottom: 20px;
+    }
+
+    .login-container p {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #666;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #2578BB;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #1f69a3;
+      cursor: pointer;
+    }
+
+    .signup-link {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .signup-link a {
+      color: #2578BB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: red;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login to Savi</h1>
+    <form id="loginForm">
+      <div class="error-message" id="errorMsg"></div>
+      <label for="usernameOrEmail">Username or Email</label>
+      <input type="text" id="usernameOrEmail" placeholder="e.g. user123 or you@email.com" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <div class="signup-link">
+      Don't have an account? <a href="/signup">Sign Up!</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById('usernameOrEmail').value.trim();
+      const password = document.getElementById('password').value;
+
+      const errorMsg = document.getElementById('errorMsg');
+      errorMsg.textContent = '';
+
+      try {
+        const res = await fetch('https://auth.api.st3.dolphinlabs.ie/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          credentials: 'include',
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          errorMsg.textContent = data.error || 'Login failed.';
+        } else {
+          window.location.href = '/home';
+        }
+      } catch (err) {
+        errorMsg.textContent = 'Network error. Please try again later.';
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signup - Savi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Savi Softworks Ltd">
+  <meta name="description" content="Savi is a safe, trustworthy all-in-one social media platform for users between the ages of 10 and 16 years old.">
+  <meta name="keywords" content="savi, social, social media, savi softworks, savi social, savi platform">
+  <meta name="apple-itunes-app" content="app-id=0">
+  <link rel="apple-touch-icon" href="./SaviLogo.png">
+  <script type="application/ld+json">
+    {
+    "@context" : "https://schema.org",
+    "@type" : "Organization",
+    "name" : "Savi Softworks Ltd",
+    "url" : "https://example.ie",
+    "image" : "./SaviLogo.png",
+    "logo" : "./SaviLogo.png",
+    "email" : "savi@example.ie",
+    "sameAs" : [
+    "",
+    ]
+    }
+    </script>
+  <meta ng-csp="no-unsafe-eval">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #2578BB, #4FACFE);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .signup-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      max-width: 90%;
+    }
+
+    .signup-container h1 {
+      text-align: center;
+      color: #2578BB;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .toggle-switch {
+      margin-top: -15px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .toggle-switch a {
+      color: #2578BB;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .toggle-switch a:hover {
+      text-decoration: underline;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      top: 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: #666;
+      user-select: none;
+    }
+
+    .toggle-password svg {
+      pointer-events: none;
+    }
+
+    button {
+      width: 100%;
+      background-color: #2578BB;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #1f69a3;
+      cursor: pointer;
+    }
+
+    .signin-link,
+    .tos-reminder {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .signin-link a,
+    .tos-reminder a {
+      color: #2578BB;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .signin-link a:hover,
+    .tos-reminder a:hover {
+      text-decoration: underline;
+    }
+
+    #message-box {
+      margin-top: 1em;
+      font-weight: 500;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h1>Welcome to Savi</h1>
+    <form id="signup-form" novalidate>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Choose a unique username" required
+        oninvalid="this.setCustomValidity('Please enter a username')" oninput="this.setCustomValidity('')" />
+
+      <div id="email-section">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com"
+          oninvalid="this.setCustomValidity('Please enter a valid email')" oninput="this.setCustomValidity('')" />
+      </div>
+
+      <div id="phone-section" style="display: none;">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="e.g. 083 123 4567"
+          oninvalid="this.setCustomValidity('Please enter a valid phone number')"
+          oninput="this.setCustomValidity('')" />
+      </div>
+
+      <div class="toggle-switch">
+        <a href="#" id="toggle-link">Use a phone number instead</a>
+      </div>
+
+      <label for="birthdate">Birthdate</label>
+      <input type="date" id="birthdate" name="birthdate" required
+        oninvalid="this.setCustomValidity('Please enter your birthdate')" oninput="this.setCustomValidity('')" />
+
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required
+          oninvalid="this.setCustomValidity('Please enter a password')" oninput="this.setCustomValidity('')" />
+        <span class="toggle-password" id="toggle-password" title="Show/hide password" role="button" tabindex="0"
+          aria-label="Toggle password visibility">
+          <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="#666"
+            viewBox="0 0 576 512">
+            <path
+              d="M572.52 241.4C518.89 135.45 407.89 64 288 64S57.11 135.45 3.48 241.4a48.18 48.18 0 0 0 0 29.2C57.11 376.55 168.11 448 288 448s230.89-71.45 284.52-177.4a48.18 48.18 0 0 0 0-29.2zM288 400c-88.22 0-160-71.78-160-160s71.78-160 160-160 160 71.78 160 160-71.78 160-160 160zm0-272a112 112 0 1 0 112 112A112 112 0 0 0 288 128z" />
+          </svg>
+          <svg id="eye-closed" xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="#666"
+            viewBox="0 0 640 512" style="display: none">
+            <path
+              d="M320 400c-51.75 0-98.64-20.1-134.08-52.89l-87.17 67.58a16 16 0 0 1-22.57-2.53l-19.69-24.25a16 16 0 0 1 2.53-22.57l80.53-62.47a320.26 320.26 0 0 1-51.14-79.89 47.93 47.93 0 0 1 0-40.26C102.34 134.55 205.19 64 320 64c59.52 0 114.35 16.18 161.37 43.53l57.71-45.19a16 16 0 0 1 22.57 2.53l19.69 24.25a16 16 0 0 1-2.53 22.57l-63.3 49.5C561.09 203.58 608 248.9 608 256c0 7.1-46.91 52.42-112.49 95.26l66.84 52.29a16 16 0 0 1 2.53 22.57l-19.69 24.25a16 16 0 0 1-22.57 2.53l-82.94-64.79A274.46 274.46 0 0 1 320 400z" />
+          </svg>
+        </span>
+      </div>
+
+      <div id="turnstile-container" style="margin-bottom: 20px;"></div>
+
+      <button type="submit">Create Account</button>
+      <div id="message-box"></div>
+    </form>
+
+    <div class="tos-reminder">
+      By signing up, you confirm that you agree to our
+      <a href="/tos" target="_blank" rel="noopener">ToS</a> and
+      <a href="/privacy" target="_blank" rel="noopener">Privacy Policy</a>.
+    </div>
+
+    <div class="signin-link">
+      Already have an account? <a href="/login">Sign in</a>
+    </div>
+  </div>
+
+<script>
+  (function () {
+    const form = document.getElementById("signup-form");
+    const emailSection = document.getElementById("email-section");
+    const phoneSection = document.getElementById("phone-section");
+    const toggleLink = document.getElementById("toggle-link");
+    const usernameInput = form.username;
+    const emailInput = form.email;
+    const phoneInput = form.phone;
+    const birthdateInput = form.birthdate;
+    const passwordInput = form.password;
+    const messageBox = document.getElementById("message-box");
+    const togglePasswordBtn = document.getElementById("toggle-password");
+    const eyeOpenIcon = document.getElementById("eye-open");
+    const eyeClosedIcon = document.getElementById("eye-closed");
+
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener("click", () => {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeOpenIcon.style.display = "none";
+        eyeClosedIcon.style.display = "inline";
+      } else {
+        passwordInput.type = "password";
+        eyeOpenIcon.style.display = "inline";
+        eyeClosedIcon.style.display = "none";
+      }
+    });
+
+    // Toggle email/phone fields
+    toggleLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (emailSection.style.display === "none") {
+        emailSection.style.display = "block";
+        phoneSection.style.display = "none";
+        toggleLink.textContent = "Use a phone number instead";
+      } else {
+        emailSection.style.display = "none";
+        phoneSection.style.display = "block";
+        toggleLink.textContent = "Use an email instead";
+      }
+      clearMessage();
+    });
+
+    function clearMessage() {
+      messageBox.textContent = "";
+      messageBox.style.color = "";
+    }
+
+    function showMessage(text, isError = true) {
+      messageBox.textContent = text;
+      messageBox.style.color = isError ? "red" : "green";
+    }
+
+    // Validate age for 10-16 inclusive
+    function isValidAge(birthdateStr) {
+      if (!birthdateStr) return false;
+      const birthdate = new Date(birthdateStr);
+      const today = new Date();
+
+      let age = today.getFullYear() - birthdate.getFullYear();
+      const m = today.getMonth() - birthdate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+      }
+
+      return age >= 10 && age <= 16;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      clearMessage();
+
+      if (!usernameInput.value.trim()) {
+        showMessage("Please enter a username.");
+        return;
+      }
+      if (emailSection.style.display !== "none" && !emailInput.value.trim()) {
+        showMessage("Please enter your email address.");
+        return;
+      }
+      if (phoneSection.style.display !== "none" && !phoneInput.value.trim()) {
+        showMessage("Please enter your phone number.");
+        return;
+      }
+      if (!birthdateInput.value) {
+        showMessage("Please enter your birthdate.");
+        return;
+      }
+      if (!isValidAge(birthdateInput.value)) {
+        showMessage("You must be between 10 and 16 years old to sign up.");
+        return;
+      }
+      if (!passwordInput.value) {
+        showMessage("Please enter a password.");
+        return;
+      }
+
+      // Prepare payload
+      const payload = {
+        username: usernameInput.value.trim(),
+        password: passwordInput.value,
+        dob: birthdateInput.value,
+      };
+
+      if (emailSection.style.display !== "none") {
+        payload.email = emailInput.value.trim();
+      } else {
+        payload.phone = phoneInput.value.trim();
+      }
+
+      try {
+        const response = await fetch(
+          "https://auth.api.st3.dolphinlabs.ie/signup",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          showMessage(result.error || "Signup failed. Please try again.");
+          return;
+        }
+
+        showMessage("Signup successful! You may now log in.", false);
+        form.reset();
+      } catch (err) {
+        showMessage("Network error. Please try again later.");
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

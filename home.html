@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | My Feed - Savi</title>
+    <meta name="author" content="Savi Softworks Ltd">
+    <meta name="description"
+        content="Savi is a safe, trustworthy all-in-one social media platform for users between the ages of 10 and 16 years old.">
+    <meta name="keywords" content="savi, social, social media, savi softworks, savi social, savi platform">
+    <link rel="apple-touch-icon" href="./SaviLogo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Savi Softworks Ltd",
+      "url": "https://example.ie",
+      "image": "./SaviLogo.png",
+      "logo": "./SaviLogo.png",
+      "email": "savi@example.ie",
+      "sameAs": [
+        "https://twitter.com/savi",
+        "https://facebook.com/savi"
+      ]
+    }
+    </script>
+
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #eeeeee;
+            color: #212020;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation Bar */
+        .top-nav-header {
+            display: flex;
+            justify-content: space-between;
+            /* Left nav and right profile container */
+            align-items: center;
+            /* Vertically centers everything */
+            padding: 0 15px;
+            background-color: #a3a3a3;
+            height: 60px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-sizing: border-box;
+            /* Make padding included in height */
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            height: 100%;
+            /* Ensure flex container fills header height */
+        }
+
+        .top-nav-username {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .top-nav-username:hover {
+            color: #ebebeb;
+        }
+
+        .top-nav-pfp {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 60px;
+            /* Match nav height */
+            padding: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .top-nav-header {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+            }
+
+            .profile-container {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+        .logo-nav{
+            
+         }
+        img{
+            height: 38px;
+        }
+        .search-bar{
+            width: 300px;
+         }
+        input{
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top-nav-header">
+        <div class="left-nav">
+            <div class="logo-nav">
+                <img src="./SaviLogo.png">
+            </div>
+        </div>
+        <div class="center-nav">
+            <div class="search-bar">
+                <input type="text">
+            </div>
+        </div>
+        </div>
+        <div class="right-nav">
+            <div class="profile-container">
+                <a class="top-nav-username" href="/me/profile">Username</a>
+                <img class="top-nav-pfp" src="./1312_kdmconfig_icon.png" alt="Profile Picture">
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="feed">
+        </section>
+    </main>
+</body>
+
+</html>
