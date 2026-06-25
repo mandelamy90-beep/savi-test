@@ -4,4 +4,3 @@ async function loadComponent(id, file) {
 }
 
 loadComponent("sidebar", "/components/sidebar.html");
-loadComponent("createModal", "/components/createPostModal.html");

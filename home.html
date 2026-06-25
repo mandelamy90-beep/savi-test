@@ -27,7 +27,7 @@
     }
     </script>
     <!--<script src="./auth_js_k7v1.js"></script>-->
-    <script src="./components.js"></script>
+    <!--<script src="./components.js"></script>-->
 
     <link rel="Stylesheet" href="./base_css_a1x9.css">
     <link rel="Stylesheet" href="./modal_basic_a1f2.css">
@@ -35,32 +35,49 @@
 </head>
 
 <body>
-<div class="page">
-    <div class="layout">
-        <div id="sidebar"></div>
+    <div class="page">
+        <div class="layout">
+            <!--<div id="sidebar"></div>-->
+            <aside class="sidebar">
+                <a href="/home" class="logo" aria-label="Savi Home"></a>
 
-        <main class="feed">
+                <nav>
+                    <a href="/home" class="active">Home</a>
+                    <a href="/recent">Recents</a>
+                </nav>
 
-            <h1>My Feed</h1>
+                <button class="createBtn" id="createPost">
+                    Create
+                </button>
 
-            <div class="post large"></div>
+                <div class="profile">
+                    <div class="avatar"></div>
+                    <span>Username ▼</span>
+                </div>
+            </aside>
 
-            <div class="post small"></div>
+            <main class="feed">
 
-            <div class="post medium"></div>
+                <h1>My Feed</h1>
 
-        </main>
+                <div class="post large"></div>
 
-        <aside class="rightbar">
+                <div class="post small"></div>
 
-            <h3>You May Know</h3>
-            <div class="suggestion">Profile</div>
-            <div class="suggestion">Profile</div>
-            <div class="suggestion">Profile</div>
+                <div class="post medium"></div>
 
-        </aside>
+            </main>
+
+            <aside class="rightbar">
+
+                <h3>You May Know</h3>
+                <div class="suggestion">Profile</div>
+                <div class="suggestion">Profile</div>
+                <div class="suggestion">Profile</div>
+
+            </aside>
+        </div>
     </div>
-</div>
     <!-- Modal -->
     <div id="createPostModal" class="modal">
 
@@ -73,7 +90,7 @@
         </div>
 
     </div>
-<script src="./modal_init_a1b2.js"></script>
+    <script src="./modal_init_a1b2.js"></script>
 </body>
 
 </html>
