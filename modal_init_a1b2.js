@@ -1,6 +1,6 @@
 // (C) 2026 SAVI SOFTWORKS LTD. SAVI SOFTWORKS LTD IS A REGISTERED
 // TRADEMARK OF THE LOVENORSAD COMPANY.
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("createPostModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("createPost");

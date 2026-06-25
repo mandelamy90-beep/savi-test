@@ -11,7 +11,7 @@ body {
 
 .layout {
 
-    width: 100%;
+    width:min(1350px, calc(100% - 80px));
     max-width: 1350px;
 
     display: grid;
@@ -23,6 +23,12 @@ body {
     padding: 40px 40px 0;
 
     box-sizing: border-box;
+}
+
+.page{
+    display:flex;
+    justify-content:center;
+    width:100%;
 }
 
 /* LEFT SIDEBAR */
@@ -85,7 +91,7 @@ nav a {
     font-size: 34px;
 
     border: 4px solid black;
-    border-radius: 18px;
+    border-radius: 15px;
 
     background: white;
 
@@ -205,4 +211,9 @@ nav a {
 
     }
 
+}
+
+
+.warningText{
+    color: #c63333;
 }
