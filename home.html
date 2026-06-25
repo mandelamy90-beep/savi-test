@@ -71,12 +71,25 @@
         }
 
         .logo {
+            display: block;
 
-            font-size: 64px;
-            margin-top: 0;
-            margin-bottom: 40px;
-            font-family: Georgia, serif;
-            font-style: italic;
+            width: 190px;
+            height: 79.48px;
+            /* 190 × 306 / 731 */
+
+            background-image: url("./SaviLogoMap.png");
+            background-repeat: no-repeat;
+
+            /* Scale the entire atlas down */
+            background-size: 380px 159px;
+
+            /* Top-left sprite */
+            background-position: 0 0;
+
+            margin-bottom: 45px;
+
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         nav {
@@ -279,7 +292,7 @@
 
     <div class="layout">
         <aside class="sidebar">
-            <h1 class="logo">Savi</h1>
+            <a href="/" class="logo"></a>
 
             <nav>
                 <a href="#" class="active">Home</a>
