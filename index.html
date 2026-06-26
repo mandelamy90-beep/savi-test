@@ -149,6 +149,7 @@
       text-align: center;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <div class="signup-container">
@@ -258,6 +259,34 @@
       }
       clearMessage();
     });
+
+          async function checkSession() {
+
+            try {
+
+                const response =
+                    await axios.get(
+                        'https://auth.api.st3.dolphinlabs.ie/me',
+                        {
+                            withCredentials: true
+                        }
+                    );
+
+                if (response.data.user) {
+
+                    location.href =
+                        "/home.html";
+
+                }
+
+            } catch (err) {
+
+                // Not logged in
+                console.log("No active session.");
+
+            }
+
+        }
 
     function clearMessage() {
       messageBox.textContent = "";
