@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Login - Savi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Savi Softworks Ltd">
-  <meta name="description" content="Savi is a safe, trustworthy all-in-one social media platform for users between the ages of 10 and 16 years old.">
+  <meta name="description"
+    content="Savi is a safe, trustworthy all-in-one social media platform for users between the ages of 10 and 16 years old.">
   <meta name="keywords" content="savi, social, social media, savi softworks, savi social, savi platform">
   <meta name="apple-itunes-app" content="app-id=0">
   <link rel="apple-touch-icon" href="./SaviLogo.png">
@@ -114,6 +116,7 @@
   </style>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
   <div class="login-container">
     <h1>Login to Savi</h1>
@@ -144,32 +147,32 @@
 
       async function checkSession() {
 
-            try {
+        try {
 
-                const response =
-                    await axios.get(
-                        'https://auth.api.st3.dolphinlabs.ie/me',
-                        {
-                            withCredentials: true
-                        }
-                    );
+          const response =
+            await axios.get(
+              'https://auth.api.st3.dolphinlabs.ie/me',
+              {
+                withCredentials: true
+              }
+            );
 
-                if (response.data.user) {
+          if (response.data.user) {
 
-                    location.href =
-                        "/home.html";
+            location.href =
+              "/home.html";
 
-                }
+          }
 
-            } catch (err) {
+        } catch (err) {
 
-                // Not logged in
-                console.log("No active session.");
-
-            }
+          // Not logged in
+          console.log("No active session.");
 
         }
-      
+
+      }
+
       checkSession();
 
       try {
@@ -196,4 +199,5 @@
     });
   </script>
 </body>
+
 </html>
