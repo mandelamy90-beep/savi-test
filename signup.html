@@ -259,6 +259,34 @@
       clearMessage();
     });
 
+          async function checkSession() {
+
+            try {
+
+                const response =
+                    await axios.get(
+                        'https://auth.api.st3.dolphinlabs.ie/me',
+                        {
+                            withCredentials: true
+                        }
+                    );
+
+                if (response.data.user) {
+
+                    location.href =
+                        "/home.html";
+
+                }
+
+            } catch (err) {
+
+                // Not logged in
+                console.log("No active session.");
+
+            }
+
+        }
+
     function clearMessage() {
       messageBox.textContent = "";
       messageBox.style.color = "";

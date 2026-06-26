@@ -141,6 +141,34 @@
       const errorMsg = document.getElementById('errorMsg');
       errorMsg.textContent = '';
 
+      async function checkSession() {
+
+            try {
+
+                const response =
+                    await axios.get(
+                        'https://auth.api.st3.dolphinlabs.ie/me',
+                        {
+                            withCredentials: true
+                        }
+                    );
+
+                if (response.data.user) {
+
+                    location.href =
+                        "/home.html";
+
+                }
+
+            } catch (err) {
+
+                // Not logged in
+                console.log("No active session.");
+
+            }
+
+        }
+
       try {
         const res = await fetch('https://auth.api.st3.dolphinlabs.ie/login', {
           method: 'POST',
