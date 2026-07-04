@@ -22,10 +22,10 @@
         window.currentUser = user;
 
         const display =
-            document.getElementById("userDisplay");
+            document.getElementById("username");
 
         if (display) {
-            display.textContent = user.email;
+            display.textContent = user.username;
         }
 
     } catch (err) {
